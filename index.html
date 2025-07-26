@@ -32,14 +32,18 @@
         <input type="text" id="cpf" class="input-cpf" placeholder="000.000.000-00" maxlength="14">
         <div id="campoExtra"></div>
         <div class="botoes">
-            <button id="btnConsultar" class="botao">Clique aqui!</button>
+            <button id="btnConsultar" class="botao" onclick="iniciarCarregamento(this)">Clique aqui! <span class="spinner"></span></button>
         </div>
 
         <div class="botoes">
             <a href="menu.html" style="color: #082f6a;">Sou escola.</a>
         </div>
     </div>
-
+    <footer style="justify-content: end;">
+          <div class="info">
+            <button class="btn-1">?</button>
+            <div class="texto">Alguns CPFS cadastrados:<br>63948592707<br>30622158623<br>54492333494<br>59679624013 </div></div>
+    </footer>
 
 </main>
 <script src="script.js"></script>

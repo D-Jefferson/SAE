@@ -26,13 +26,15 @@ document.getElementById('btnConsultar').addEventListener('click', function () {
 
 if (dados) {
   document.getElementById('titulo').textContent = 'Bem-vindo';
-  document.getElementById('descricao1').textContent = dados.nome;
-  document.getElementById('descricao2').textContent = '--------------------------------------';
-  document.getElementById('subtitulo').textContent = `Escola do aluno: ${dados.escola}`;
+  document.getElementById('descricao2').textContent = dados.escola;
+  document.getElementById('descricao1').textContent = '--------------------------------------';
+  document.getElementById('subtitulo').textContent = dados.nome;
+  document.getElementById('subtitulo').style.fontSize = "24px";
 
   cpfInput.remove();
 
   document.getElementById('campoExtra').innerHTML = `
+  <p class="descricao">--------------------------------------</p>
     <p class="descricao">Série do aluno: ${dados.serie}</p>
     <p class="descricao">--------------------------------------</p>
   `;

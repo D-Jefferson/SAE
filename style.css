@@ -399,111 +399,145 @@ body.ativa {
 
 
 
-    .modal {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-      width: 700px;
-      max-width: 95%;
-      padding: 20px 30px;
-    }
-    h1 {
-      margin: 0 0 20px;
-      font-size: 22px;
-    }
-    .tabs {
-      display: flex;
-      border-bottom: 2px solid #ddd;
-      margin-bottom: 20px;
-    }
-    .tabs button {
-      flex: 1;
-      padding: 12px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-weight: 500;
-      border-bottom: 3px solid transparent;
-      transition: 0.3s;
-    }
-    .tabs button.active {
-      border-bottom: 3px solid #1d3557;
-      color: #1d3557;
-    }
-    form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    label {
-      flex: 1 1 45%;
-      font-weight: 500;
-      display: flex;
-      flex-direction: column;
-      font-size: 14px;
-    }
-    input, select {
-      margin-top: 5px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
-    }
-    .full-width {
-      flex: 1 1 100%;
-    }
-    .btn {
-      margin-top: 20px;
-      background: #1d3557;
-      color: white;
-      border: none;
-      padding: 12px;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      width: 100%;
-    }
-    .btn:hover {
-      background: #16324d;
-    }
-    .painel, #telaLogin { margin-top: 20px; }
-    .hidden { display: none; }
-    .aluno-card {
-        display: flex;
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 8px;
-      background: #f9f9f9;
-    }
-    input[type="number"] {
-      width: 60px;
-      margin-left: 5px;
-    }
+.modal {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    width: 900px;
+    max-width: 95%;
+    padding: 20px 30px;
+}
+h1 {
+    margin: 0 0 20px;
+    font-size: 22px;
+}
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+}
+.tabs button {
+    flex: 1;
+    padding: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
+}
+.tabs button.active {
+    border-bottom: 3px solid #1d3557;
+    color: #1d3557;
+}
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+label {
+    flex: 1 1 45%;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+input, select {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+.full-width {
+    flex: 1 1 100%;
+}
+.btn {
+    margin-top: 20px;
+    background: #1d3557;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+.btn:hover {
+    background: #16324d;
+}
+.painel, #telaLogin { margin-top: 20px; }
+.hidden { display: none; }
+.aluno-card {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+input[type="number"] {
+    width: 60px;
+    margin-left: 5px;
+}
 
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 60px;
-      background-color: transparent;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-    }
+.info {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+}
 
-    footer button {
-      padding: 15px 30px;
-      border: none;
-      background-color: #1d3557;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+.texto {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    padding: 8px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-90%);
+    width: 250px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
 
-    footer button:hover {
-      background-color: #0056b3;
-    }
+.info:hover .texto {
+    visibility: visible;
+    opacity: 1;
+}
+
+.btn-1 {
+    border-radius: 50%;
+    padding: 12px 15px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 9;
+}
+
+footer button {
+    padding: 15px 30px;
+    border: none;
+    background-color: #1d3557;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+footer button:hover {
+    background-color: #0056b3;
+}

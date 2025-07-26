@@ -65,7 +65,8 @@ async function preencherEscolas() {
 
 document.getElementById("cadastroForm").addEventListener("submit", async function(e) {
     e.preventDefault();
-    const cpf = document.getElementById("cpf").value.trim();
+    let cpf = document.getElementById("cpf").value.trim();
+    cpf = cpf.replace(/\D/g, '');
     const nome = document.getElementById("nome").value.trim();
     const serie = document.getElementById("serie").value.trim();
 
@@ -81,19 +82,23 @@ async function atualizarNotas() {
     container.innerHTML = "";
     const dados = await carregarDados();
     for (const cpf in dados) {
-    if (cpf === "escolas") continue;
-    const aluno = dados[cpf];
-    if (aluno.escola !== escolaSelecionada) continue;
-    const div = document.createElement("div");
-    div.className = "aluno-card";
-    div.innerHTML = `
-        <strong>${aluno.nome}</strong> (${aluno.serie})<br>
-        <label>Português: <input type="number" id="pt-${cpf}" value="${aluno.notas?.['Português'] || ''}"></label><br>
-        <label>Matemática: <input type="number" id="mat-${cpf}" value="${aluno.notas?.['Matemática'] || ''}"></label><br>
-        <label>Frequência: <input type="text" id="freq-${cpf}" placeholder="25/07 - presente"></label><br>
-        <button onclick="salvarNotasFrequencia('${cpf}')">Salvar</button>
-    `;
-    container.appendChild(div);
+        if (cpf === "escolas") continue;
+        const aluno = dados[cpf];
+        if (aluno.escola !== escolaSelecionada) continue;
+        const div = document.createElement("div");
+        div.className = "aluno-card";
+        div.innerHTML = `
+            <strong>${aluno.nome}</strong> (${aluno.serie})<br>
+            <label>Português: <input type="number" id="pt-${cpf}" value="${aluno.notas?.['Português'] || ''}"></label><br>
+            <label>Matemática: <input type="number" id="mat-${cpf}" value="${aluno.notas?.['Matemática'] || ''}"></label><br>
+            <label>Ciências: <input type="number" id="cien-${cpf}" value="${aluno.notas?.['Ciências'] || ''}"></label><br>
+            <label>História: <input type="number" id="hist-${cpf}" value="${aluno.notas?.['História'] || ''}"></label><br>
+            <label>Geografia: <input type="number" id="geo-${cpf}" value="${aluno.notas?.['Geografia'] || ''}"></label><br>
+            <label>Inglês: <input type="number" id="ing-${cpf}" value="${aluno.notas?.['Inglês'] || ''}"></label><br>
+            <label>Frequência: <input type="text" id="freq-${cpf}" placeholder="25/07 - presente"></label><br>
+            <button class="botao" style="padding: 10px 10px" onclick="salvarNotasFrequencia('${cpf}')">Salvar</button>
+        `;
+        container.appendChild(div);
     }
 }
 
@@ -101,24 +106,28 @@ async function salvarNotasFrequencia(cpf) {
     const dados = await carregarDados();
     const aluno = dados[cpf];
 
-
     aluno.notas = {
-    "Português": parseFloat(document.getElementById(`pt-${cpf}`).value) || 0,
-    "Matemática": parseFloat(document.getElementById(`mat-${cpf}`).value) || 0
+        "Português": parseFloat(document.getElementById(`pt-${cpf}`).value) || 0,
+        "Matemática": parseFloat(document.getElementById(`mat-${cpf}`).value) || 0,
+        "Ciências": parseFloat(document.getElementById(`cien-${cpf}`).value) || 0,
+        "História": parseFloat(document.getElementById(`hist-${cpf}`).value) || 0,
+        "Geografia": parseFloat(document.getElementById(`geo-${cpf}`).value) || 0,
+        "Inglês": parseFloat(document.getElementById(`ing-${cpf}`).value) || 0
     };
 
     const entrada = document.getElementById(`freq-${cpf}`).value.trim();
     if (entrada) {
-    const [data, status] = entrada.split('-').map(e => e.trim());
-    const hoje = new Date();
-    const semana = `Semana_${Math.ceil(hoje.getDate() / 7)}`;
-    aluno.frequencia[semana] = aluno.frequencia[semana] || {};
-    aluno.frequencia[semana][data] = status.toLowerCase();
+        const [data, status] = entrada.split('-').map(e => e.trim());
+        const hoje = new Date();
+        const semana = `Semana_${Math.ceil(hoje.getDate() / 7)}`;
+        aluno.frequencia[semana] = aluno.frequencia[semana] || {};
+        aluno.frequencia[semana][data] = status.toLowerCase();
     }
 
     await salvarDados(dados);
     alert("Notas e frequência salvos!");
 }
+
 
 async function atualizarAvisos() {
     const container = document.getElementById("listaAvisos");
@@ -135,9 +144,7 @@ async function atualizarAvisos() {
         <label>Novo Aviso:
         <input type="text" id="aviso-${cpf}" placeholder="Digite o aviso">
         </label><br>
-        <button onclick="salvarAviso('${cpf}')">Adicionar Aviso</button><br><br>
-        <strong>Avisos:</strong><br>
-        <ul>${(aluno.avisos || []).map(a => `<li>${a}</li>`).join('')}</ul>
+        <button class="botao" style="padding: 10px 10px onclick="salvarAviso('${cpf}')">Adicionar Aviso</button><br><br>
     `;
     container.appendChild(div);
     }
