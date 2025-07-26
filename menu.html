@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão Escolar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="Icon/logo.png" type="image/x-icon">
+</head>
+<body class="ativa">
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon"><i class="fa-solid fa-book-open"></i></span>
+            <div class="logo-texto">
+                <span class="nome">SAE - SISTEMA DE ACOMPANHAMENTO ESCOLAR</span>
+            </div>
+        </div>
+    </header>
+  <div class="modal">
+    <h1>Gestão Escolar</h1>
+    <div id="telaLogin">
+      <label>Escolha a Escola:
+        <select id="escolaLogin"></select>
+      </label>
+      <label>Senha da Escola:
+        <input type="password" id="senhaLogin">
+      </label>
+      <button class="btn" onclick="verificarSenha()">Entrar</button>
+    </div>
+    <div id="painelPrincipal" class="hidden">
+      <div class="tabs">
+        <button class="tab-button active" onclick="mostrarPainel('painelCadastro', this)">Cadastrar Aluno</button>
+        <button class="tab-button" onclick="mostrarPainel('painelNotas', this)">Notas e Presença</button>
+        <button class="tab-button" onclick="mostrarPainel('painelAvisos', this)">Avisos</button>
+      </div>
+
+      <div id="painelCadastro" class="painel">
+        <form id="cadastroForm">
+          <label>CPF:
+            <input type="text" id="cpf" required oninput="mascararCPF(this)">
+          </label>
+          <label>Nome:
+            <input type="text" id="nome" required>
+          </label>
+          <label>Série:
+            <input type="text" id="serie" required>
+          </label>
+          <div class="full-width">
+            <button type="submit" class="btn">Cadastrar Aluno</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="painelNotas" class="painel hidden">
+        <div id="listaNotas">Carregando alunos...</div>
+      </div>
+
+      <div id="painelAvisos" class="painel hidden">
+        <div id="listaAvisos">Carregando alunos...</div>
+      </div>
+    </div>
+    </div>
+    <footer>
+        <button onclick="window.location.href='index.html'"><i class="fa-solid fa-left-long"></i>  Voltar</button>
+    </footer>
+
+ <script src="script_escola.js"></script>
+
+</body>
+</html>
