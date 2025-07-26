@@ -26,7 +26,6 @@ body {
     transition: opacity 0.1s ease;
     opacity: 1;
     background-image: url('fundo.png');
-    background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     display: flex;
@@ -267,138 +266,6 @@ body.ativa {
 }
 
 
-
-@media (max-width: 1200px) {
-    .titulo {
-        font-size: 50px;
-    }
-    .parte-conteudo {
-        padding: 0 40px 0 80px;
-    }
-    .header {
-        padding: 20px 40px;
-    }
-    .grade-projetos {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .main-title {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 992px) {
-    .container {
-        flex-direction: column;
-    }
-    .parte-conteudo {
-        flex: none; 
-        padding: 120px 30px 50px 30px; 
-        text-align: center;
-        align-items: center;
-    }
-    .titulo {
-        font-size: 45px;
-    }
-    .imagem {
-        display: none;
-    }
-    .header {
-        padding: 20px 30px;
-    }
-    .scroll-indicator {
-        bottom: 20px;
-        right: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .titulo {
-        font-size: 38px;
-        max-width: 100%;
-    }
-    .descricao {
-        font-size: 15px;
-        max-width: 100%;
-    }
-    .header {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 20px 20px;
-    }
-    .logo-texto {
-        display: none;
-    }
-    .icones-social {
-        justify-content: center;
-    }
-    .main-title {
-        font-size: 2rem;
-    }
-    .parte {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .titulo {
-        font-size: 30px;
-    }
-    .parte-conteudo {
-        padding: 100px 15px 30px 15px;
-    }
-    .header {
-        padding: 15px;
-    }
-    .logo-icon {
-        font-size: 24px;
-        width: 34px;
-        height: 34px;
-    }
-    .main-nav .menu-toggle {
-        font-size: 12px;
-        padding: 5px;
-    }
-    .hamburger-icon {
-        font-size: 20px;
-    }
-    .imagem {
-        display: none;
-    }
-}
-
-
-@media (max-width: 355px) {
-    .titulo {
-        font-size: 30px;
-    }
-    .parte-conteudo {
-        padding: 100px 15px 30px 15px;
-    }
-    .header {
-        padding: 15px;
-    }
-    .logo-icon {
-        font-size: 24px;
-        width: 34px;
-        height: 34px;
-    }
-    .main-nav .menu-toggle {
-        font-size: 12px;
-        padding: 5px;
-    }
-    .hamburger-icon {
-        font-size: 20px;
-    }
-    .imagem {
-        display: none;
-    }
-}
-
-
-
 .modal {
     background: white;
     border-radius: 12px;
@@ -541,3 +408,146 @@ footer button {
 footer button:hover {
     background-color: #0056b3;
 }
+
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imagem {
+    transform: scale(0.8);
+    width: 0%;
+    max-width: 100%;
+    margin-top: 30px;
+    border-radius: 15px;
+  }
+
+  .parte-conteudo {
+    width: 100%;
+    max-width: 100%;
+    padding: 30px 20px;
+    box-shadow: none;
+    align-items: center;
+  }
+
+  .botoes {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .titulo {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .descricao1,
+  .descricao2,
+  .descricao3 {
+    text-align: center;
+    font-size: 15px;
+  }
+
+  .input-cpf {
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .dados-aluno {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .modal {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .logo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-texto .nome {
+    font-size: 14px;
+  }
+
+    .imagem {
+    display: none;
+    }
+
+    .imagem.visivel {
+    display: flex;
+    }
+
+  .titulo {
+    font-size: 24px;
+  }
+
+  .input-cpf {
+    font-size: 14px;
+  }
+
+  .botao, .btn {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .card h2 {
+    font-size: 1.4rem;
+  }
+
+  .card ul, .card p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabs button {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .btn-1 {
+    padding: 8px 10px;
+  }
+
+  .texto {
+    font-size: 12px;
+    width: 200px;
+    transform: translateX(-50%);
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  input, select {
+    font-size: 13px;
+  }
+}
+

@@ -30,6 +30,7 @@ if (dados) {
   document.getElementById('descricao1').textContent = '--------------------------------------';
   document.getElementById('subtitulo').textContent = dados.nome;
   document.getElementById('subtitulo').style.fontSize = "24px";
+  document.getElementById('areaImagem').classList.add('visivel');
 
   cpfInput.remove();
 
